@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         var a = 0x10;
+         console.log(a); //16 
+         console.log(typeof a); //number
+    </script>
+     <script>
+        var a = 010;
+        console.log(a); //8
+        console.log(typeof a); //number
+   </script>
+    <script>
+        var a = 0b10;
+        console.log(a); //2
+        console.log(typeof a); //number
+   </script>
+   <script>
+    var a = "070";
+    console.log(parseInt(a,10)); //70
+    console.log(typeof a); //number
+</script>
+    <script>
+        var tmp = "false";
+        tmp = Boolean(tmp);
+        console.log(tmp);        //true
+        console.log(typeof tmp); //boolean
+    </script>
+    <script>
+        var tmp = null;
+        tmp = Boolean(tmp);
+        console.log(tmp);        //false
+        console.log(typeof tmp); //boolean
+   </script>
+   <script>
+    var tmp = undefined;
+    tmp = Boolean(tmp);
+    console.log(tmp);        //false
+    console.log(typeof tmp); //boolean
+</script>
+<script>
+    var tmp = "";
+    tmp = Boolean(tmp);
+    console.log(tmp);        //false
+    console.log(typeof tmp); //boolean
+</script>
+<script>
+    var tmp = NaN;
+    tmp = Boolean(tmp);
+    console.log(tmp);        //false
+    console.log(typeof tmp); //boolean
+</script>
+   
+<script>
+    var tmp = "AD";
+    tmp = !!tmp;
+    console.log(tmp);        //true
+    console.log(typeof tmp); //boolean
+</script>
+</head>
+<body>
+    
+</body>
+</html>

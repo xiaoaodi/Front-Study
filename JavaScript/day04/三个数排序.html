@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //输入的数其实是字符串
+        var num_1 = +prompt("请输入第一个数");
+        var num_2 = +prompt("请输入第二个数");
+        var num_3 = +prompt("请输入第三个数");
+
+        var math = 0;
+        if(num_1 < num_3)
+        {
+            math =num_1;
+            num_1 = num_3;
+            num_3 = math;
+        }
+        
+        if(num_2 < num_3)
+        {
+            math =num_3;
+            num_3 = num_2;
+            num_2 = math;
+        }
+
+        if(num_1 < num_2)
+        {
+            math =num_1;
+            num_1 = num_2;
+            num_2 = math;
+        }
+        console.log("" + num_1+ " > "+ num_2+ " > "+ num_3);
+        document.write("" + num_1+ " > "+ num_2+ " > "+ num_3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        for(var flag = 100; flag <= 1000; flag++)
+        {
+            var sum = 0;
+            var i = flag;
+            while(i > 0)
+            {
+                var index = i % 10;
+                sum = sum + Math.pow(index,3) ;
+                i = parseInt(i / 10);
+            }
+
+            if(sum == flag)
+            {
+                document.write(flag + "为水仙花数" + "<br  />");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

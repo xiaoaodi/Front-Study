@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("a" > "b");//false
+        console.log(124 < 3242); //true
+        console.log("1234" < "2");//true
+        console.log(1 > true); //false
+        console.log(-1 < true);//true
+        console.log(10 > null); //true
+        console.log(1000 > NaN); //false
+        console.log(1000 < NaN); //false
+        console.log(1000 < undefined);//false
+        console.log(1000 > undefined);//false
+        console.log(1 > "3");//false
+        console.log(-1 < null);//true
+
+    </script>
+    <script>
+         console.log(NaN == NaN); //false
+         console.log(NaN == "1313"); //false
+         console.log(NaN != "1313"); //true
+         console.log(NaN != NaN); //true
+         console.log(NaN != undefined); //true
+         console.log(NaN == undefined); //false
+    </script>
+    <script>
+        console.log(NaN !== undefined); //true
+    </script>
+    <script>
+        console.log(NaN === NaN); //false
+        console.log(123 === "123"); //false
+    </script>
+       <script>
+        console.log(NaN == undefined); //false
+    </script>
+    <script>
+         var tmp = NaN;
+         var tmp_1;
+         console.log(isNaN(tmp));//true
+         console.log(isNaN(tmp_1));//true
+    </script>
+    <script>
+        console.log("\u2620");
+    </script>
+    <script>
+        document.write("\u2620");
+    </script>
+    <script>
+        false?alert("为true执行这一句"):alert("为false执行这一句");
+    </script>
+    <script>
+        var a =500, b = 400 ,c =300;
+        var tmp = a > b ?(a > c? a : c) :(b > c ? b:c);
+        console.log(tmp);//500
+    </script>
+
+<script> 
+    var tmp = 1 || 3 && 6; // ouput:1 如果 || 优先级高返回6 如果与的优先级高返回1
+    console.log(tmp);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

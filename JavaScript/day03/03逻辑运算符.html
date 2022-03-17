@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var flag = true;
+        console.log(!flag);  //false
+    </script>
+    <script>
+         var flag = "111";
+         flag = !!flag;
+        console.log(flag);  //true
+        console.log(typeof flag);  //boolean
+    </script>
+
+    <script>
+        var tmp = 10 && 50;
+        console.log(tmp);  //50
+        console.log(typeof tmp);  //number
+    </script>
+    <!-- 任何与NaN相与都为NaN -->
+        <script>
+            var tmp = NaN && 50;
+            console.log(tmp);  // NaN
+            console.log(typeof tmp);  //number
+        </script>
+        <SCript>
+            false && alert("没有弹出窗口哦")
+        </SCript>
+
+        <script>
+            var tmp = 10 || 50;
+              console.log(tmp);  //10
+              console.log(typeof tmp);  //number
+        </script>
+        <script>
+            var tmp = NaN || undefined;
+            console.log(tmp);  // undefined
+            console.log(typeof tmp);  //number
+        </script>
+
+</head>
+<body>
+    
+</body>
+</html>

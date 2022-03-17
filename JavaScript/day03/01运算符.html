@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 从左到右进行运算 -->
+    <script>
+        var str = "asda";
+        str = 123 + 444 +str ;
+        console.log(str);   //567asda 
+        console.log(typeof str);//string
+    </script>
+
+    <script>
+        var num = 1231;
+        num = num +true;
+        console.log(num);   //1232
+        console.log(typeof num); //number
+    </script>
+
+    <script>
+        var num = 1231;
+        num = num + undefined;
+        console.log(num);   //NaN
+        console.log(typeof num); //number
+    </script>
+    <script>
+        var num = "1231";
+        num = num  - 0 ;
+        console.log(num);   //1231
+        console.log(typeof num); //number
+    </script>
+     <script>
+        var num = 1231;
+        num = num  + "" ;
+        console.log(num);   //1231
+        console.log(typeof num); //string
+    </script>
+    <script>
+        var tmp = 10 && 15;
+        console.log(tmp)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

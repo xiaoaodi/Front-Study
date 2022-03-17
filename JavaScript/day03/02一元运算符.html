@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var tmp = "1234";
+        tmp = +tmp
+        console.log(tmp);  //1234
+        console.log( typeof tmp); //number
+    </script>
+
+<script>
+    var tmp = 1234;
+    tmp = -tmp
+    console.log(tmp);  //-1234
+    console.log( typeof tmp); //number
+</script>
+
+<script>
+    var tmp = "1234";
+    tmp = 1+ +tmp + 10
+    console.log(tmp);  //1245
+    console.log( typeof tmp); //number
+</script>
+<script>
+    var tmp = 10, tmp_1 = 20;
+    var outValur = tmp++;
+    console.log(++outValur);   //11
+    console.log(++tmp);   //12
+    console.log(tmp_1++); //20
+</script>
+
+    <script>
+        var tmp = 10, tmp_1 = 20;
+        var outValur = tmp--;
+        console.log(--outValur);   //9
+        console.log(--tmp);   //8
+        console.log(tmp_1--); //20
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

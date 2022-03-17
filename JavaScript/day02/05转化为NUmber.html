@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = "123";
+        str = Number(str);
+        console.log(str);  //123
+        console.log( typeof str); //number
+    </script>
+    <script>
+         var str = "a123";
+        str = Number(str);
+        console.log(str);  //NaN
+        console.log( typeof str); //number
+    </script>
+     <script>
+        var str = "            ";
+       str = Number(str);
+       console.log(str);  //0
+       console.log( typeof str); //number
+   </script>
+   <script>
+       var str =true;
+       var str_1 = false;
+       str = Number(str);
+       str_1 = Number(str_1);
+       console.log(str);    //1
+       console.log(str_1);  //0
+       console.log( typeof str); //number
+   </script>
+
+<script>
+    var str = null;
+   str = Number(str);
+   console.log(str);  //0
+   console.log( typeof str); //number
+</script>
+<script>
+    var str = undefined;
+   str = Number(str);
+   console.log(str);  //NaN
+   console.log( typeof str); //number
+</script>
+<script>
+    var str = "1231px";
+    str = parseInt(str);
+    console.log(str);  //1231
+    console.log( typeof str); //number
+</script>
+<script>
+    var str = "1231.1231spx";
+    str = parseInt(str,4);
+    console.log(str);  //1231.1231
+    console.log( typeof str); //number
+</script>
+<script>
+    var tmp = "123";
+    tmp = tmp - 1;
+    console.log(tmp);  //122  注意这里不能使用运算符"+"号
+    console.log( typeof tmp); //number
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

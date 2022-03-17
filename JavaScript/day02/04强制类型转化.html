@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 12313;
+        var str = num.toString();
+        console.log(str);  //12313
+        console.log(typeof str); //string
+    </script>
+    <script>
+        var num = 12313;
+        var str = String(num);
+        console.log(str);  //12313
+        console.log(typeof str); //string
+    </script>
+    <script>
+        var tmp = null;
+        var str = String(tmp);
+        console.log(str);  //12313
+        console.log(typeof str); //string
+    </script>
+        <script>
+            var tmp;
+            var str = String(tmp);
+            console.log(str);  //12313
+            console.log(typeof str); //string
+    </script>
+            <script>
+                var tmp = 123132;
+                tmp = tmp +""
+                console.log(tmp);  //12313
+                console.log(typeof tmp); //string
+            </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str= "字符串";
+        var typeofValue = typeof str;
+        console.log(typeof str);
+        console.log(typeofValue); 
+    </script>
+    <script>
+        // var str = "这是错误的字符串';  error
+        var str_1 = "正确的字符串";
+
+        // var str_2 = "嵌套的"使用"情况"; error
+
+        var str_2 = '嵌套的"正确使"用的情况';
+        console.log(typeof str_2);
+        console.log(str_2); //输出：嵌套的'正确使'用的情况
+
+        
+    </script>
+    <script>
+
+        //专一字符的使用情况：
+        // \n: 换行    \\:表示\    \':表示' \"表示:"  \t:表示制表符
+        var str = " 你好呀，\n 我是\\你的\'他的 \"他们的\t制表符";
+        console.log(str);
+//         你好呀，
+//         我是\你的'他的 "他们的	制表符
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

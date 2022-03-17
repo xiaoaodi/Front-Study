@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 123;
+        var numFloat= 123.1231;
+        var numMax = Number.MAX_VALUE;   //最大能表示的数
+        var numMin = Number.MIN_VALUE;   //最小能表示的数
+        console.log(num);     //123
+        console.log(numFloat);//123.1231
+        console.log(numMax);  //1.7976931348623157e+308    chrome浏览器下的值 其他的浏览器表示可能不一致
+        console.log(numMin);  //5e-324
+    </script>
+    <script>
+        var num = Number.MAX_VALUE * Number.MIN_VALUE ;
+        console.log(num);          //8.881784197001251e-16
+        console.log(typeof num);   //number
+    </script>
+
+    <script>
+        var num = Infinity;
+        var num_1 = -Infinity;
+        var num_2 = NaN;
+        console.log(num_2);  //NaN
+        console.log(typeof num_2);  //number
+        console.log(num_1);  //Infinity
+        console.log(num);  //Infinity
+        console.log(typeof num);  //number
+    </script>
+    <script>
+        var num_1 = 12313;
+        var num_2 = 13123123;
+        var num_3 = 0.3123131;
+        var num_4 = 0.2;
+        console.log(num_1 + num_2); //13135436
+        console.log(num_3 + num_4); //0.5123131000000001 存在误差
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
