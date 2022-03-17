@@ -1,9 +1,12 @@
+/* 版心居中 */
 .warpper{
     width: 1240px;
     margin: 0 auto;
 }
 
-/* <!-- 快速导航模块的搭建开始 --> */
+/* 快速导航栏设置 */
+
+/* 快速导航栏宽度 */
 .fastnav{
     height: 52px;
     background-color: #333;
@@ -11,6 +14,7 @@
 
 .fastnav .warpper{
     height: 52px;
+    /* background-color:  red; */
 }
 
 .fastnav .warpper ul{
@@ -22,21 +26,20 @@
     float: left;
     line-height: 52px;
     color: #666;
-    border-right: #666;
 }
 
-.fastnav .warpper ul li:last-child a{
-    margin-right: 0px;
-}
-
-.fastnav .warpper ul li a:hover{
-    color: #27ba9b;
-}
-
-.fastnav .warpper ul li a{
+.fastnav .warpper li a{
     margin:0 16px;
     color: #dcdcdc;
 	font-size: 14px;
+}
+
+.fastnav .warpper li:last-child a {
+    margin-right: 0px;
+}
+
+.fastnav .warpper li a:hover {
+    color: #27ba9b;
 }
 
 .fastnav .warpper li:last-child a::before
@@ -51,22 +54,25 @@
     vertical-align: middle;
 }
 
- /* 快速导航模块的结束 */
+/* 快速导航栏结束 */
+
 
 .nav{
     height: 130px;
     margin-top: 30px;
 }
 
-.nav .logo{
+.nav h1{
     width: 207px;
     height: 70px;
     margin-left: 25px;
+    /* margin-right: 40px;  */
     font-size: 0px;
     background: url(../images/logo.png) no-repeat 0 0 /100%;
 }
 
 .nav ul{
+    float: left;
     margin-left: 40px;
 }
 .nav ul li{
@@ -82,7 +88,7 @@
 header .nav ul li a:hover {
     color: #27ba9b;
     border-bottom: 1px solid #27ba9b;
-} 
+}
 
 header .nav .search {
     position: relative;
@@ -127,7 +133,12 @@ header .nav .cart span {
     text-align: center;
     line-height: 15px;
 }
+
 /* 导航栏结束 */
+
+
+
+/* <!-- banner模块开始 --> */
 
 /* 底部区域开始 */
 footer {
@@ -145,8 +156,8 @@ footer .warpper {
 footer .warpper ul li {
     width: 33.33%;
     color: #fff;
-    font-size: 28px;
-    text-align: center;
+font-size: 28px;
+text-align: center;
 }
 footer .warpper ul li::before {
     content: '';
@@ -175,3 +186,96 @@ footer .foot {
 footer .foot a {
     color: #999;
 }
+
+/* 服务部分开始 */
+.service .warpper {
+    height: 302px;
+    padding-top: 79px;
+}
+
+.service ul li {
+    width: 192px;
+    height: 143px;
+    margin-right: 118px;
+    text-align: center;
+}
+.service ul li:first-child {
+    margin-left: 10px;
+}
+.service ul li:last-child {
+    margin-right: 0;
+}
+.service ul li p {
+    color: #999;
+}
+.service ul li .c {
+    margin-top: 35px;
+}
+.service ul li .c .fl {
+    color: #999;
+    width: 93px;
+    height: 93px;
+}
+.service ul li .c .left {
+    margin-right: 6px;
+}
+.service ul li .c .fl .imgs {
+    width: 34px;
+    height: 31px;
+    margin: 22px 32px 10px;
+}
+.service ul .one .c .left .imgs {
+    background: url(../images/sprites.png) no-repeat -247px -69px;
+}
+.service ul .one .c .right .imgs {
+    background: url(../images/sprites.png) no-repeat -348px -69px;
+}.service ul .two .c .left .imgs {
+    background: url(../images/sprites.png) no-repeat -205px -15px;
+}.service ul .two .right .imgs {
+    background: url(../images/sprites.png) no-repeat -348px -15px;
+}
+.service ul .three {
+    width: 266px;
+    height: 180px;
+    padding-right: 31px;
+    border-right: 2px solid #f2f2f2;
+    box-sizing: border-box;
+}
+.service ul .three .right {
+    margin-left: 16px;
+    padding-top: 13px;
+    text-align: left;
+    font-size: 14px;
+    box-sizing: border-box;
+
+}
+.service ul .three .c .left {
+width: 116px;
+height: 116px;
+padding: 7px 4px;
+border: 1px solid #ccc;
+box-sizing: border-box;
+background: url(../uploads/qrcode.png) no-repeat 5px 5px /90%;
+background-color: none;
+}
+.service ul .three .right a {
+    display: block;
+    margin-top: 18px;
+    width: 103px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #fff;
+    background-color: #27ba9b;
+}
+.service ul .four .phone {
+margin-top: 58px;
+color: #666;
+line-height: 1;
+font-size: 22px;
+}
+.service ul .four .phone span {
+    font-size: 14px;
+    color: #999;
+}
+/* 服务部分结束 */
