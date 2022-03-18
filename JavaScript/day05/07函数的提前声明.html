@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var c= 100;
+        function func1(){
+            console.log(c);
+            var c= 200;
+        }
+        func1();  //undefined
+    </script>
+
+    <script>
+        var c= 100;
+        function func1(){
+            console.log(c);
+            c= 200;
+        }
+        func1();  //100
+        console.log(c); //200
+    </script>
+
+    <script>
+        // 定义了形参就相当于声明了变量
+        var c= 100;
+        function func1(c){
+            console.log(c);
+        }
+        func1();  //undefined
+        func1(10) //10
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          function Person(name , age , gender){  
+            this.name = name;  
+            this.age = age;  
+            this.gender = gender;  
+            this.sayName = function(){  
+                alert(this.name);  
+            };  
+        }
+
+        function Zoom(name , age , gender){  
+            this.name = name;  
+            this.age = age;  
+            this.gender = gender;  
+            this.sayName = function(){  
+                alert(this.name);  
+            };  
+        }
+
+         function factroyCreate(func,name , age , gender){  
+             var obj = new func(name , age , gender);
+             return obj;
+         }
+
+         var obj_1 = factroyCreate(Person,"小红",19,"男");
+         var obj_2 = factroyCreate(Person,"小马",19,"男");
+         var obj_3 = factroyCreate(Zoom,"狗",3,"雄");
+         console.log(obj_1);
+         console.log(obj_2);
+         console.log(obj_3);
+        
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

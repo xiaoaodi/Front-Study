@@ -1,3 +1,8 @@
+---
+title: JavaScript学习笔记（第二部分）总共四部分
+date: 2022/3/18 22:30
+---
+
 ##  JavaScript学习笔记（第一部分）总共四部分
 
 ### 1 JavaScript
@@ -166,7 +171,7 @@ js的基本的语法特点:
  </script>
 ```
 
-五种基本的数据类型为：String 字符串、Number 数值(整数+浮点数)、Boolean 布尔值 、Null 空值 、Undefind 未定义。
+五种基本的数据类型为：String 字符串、Number 数值(整数+浮点数)、Boolean 布尔值 、Null 空值 、Undefined 未定义。
 
 #### 	2.1 String字符串数据类型
 
@@ -239,7 +244,7 @@ js的基本的语法特点:
         var num_2 = NaN;
         console.log(num_2);  //NaN
         console.log(typeof num_2);  //number
-        console.log(num_1);  //Infinity
+        console.log(num_1);  //-Infinity
         console.log(num);  //Infinity
         console.log(typeof num);  //number
     </script>

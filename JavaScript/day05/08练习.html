@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 123;
+        function fun()
+        {
+            alert(a); 
+        }
+        fun(); //123 
+    </script>
+
+     <script>
+        var a = 123;
+        function fun()
+        {
+            alert(a); 
+            var a = 2313;
+        }
+        fun(); //undefined
+        alert(a);//123
+    </script>
+
+       <script>
+        var a = 123;
+        function fun()
+        {
+            alert(a);
+            a = 2313;
+        }
+        fun(); //123 
+        alert(a); //2313
+    </script>
+
+    <script>
+        var a = 123;
+        function fun(a)
+        {
+            alert(a);
+            a = 2313;
+        }
+        fun(1234); //1234
+        alert(a);//2313
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

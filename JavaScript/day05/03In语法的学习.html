@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {name:"张三"};
+        // 检查obj对象中是否由name属性名
+        console.log("name" in obj);
+    </script>
+
+    <script>
+        var obj = {name:"张三",age:"1231",gander:"男"};
+        // 检查obj对象中是否由name属性名
+        for(var i in obj)
+        {
+            console.log(i, ":",obj[i]);  //name : 张三  //age : 1231  //gander : 男
+        } 
+    </script>
+    <script>
+        // 操作的是同一块内存
+        var obj = {name:"张三"};
+        var obj1 = obj;
+        console.log(obj == obj1); //true
+        console.log(obj1.name);//张三
+        obj1 = null;
+        console.log(obj.name);//张三
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [[231,1231,3,312,3,13],[1313213,13123,1321312],2,31,3123,1];
+        arr.forEach(function(value,index,arr){
+            console.log(value);
+            console.log(index);
+            console.log(arr);
+        });
+    </script>
+    <script>
+        var func = function()
+        {
+            console.log(arguments.callee);
+        }
+        func(231,231,4142);
+        //输出 function()
+        // {
+        //     console.log(arguments.callee);
+        // }
+
+    </script>
+     <script>
+        var func = function()
+        {
+            console.log(arguments[0]);//231
+            console.log(arguments[1]);//231
+            console.log(arguments[2]);//4142
+        }
+        func(231,231,4142);
+    </script>
+
+    <script>
+        var func = function()
+        {
+            console.log(this.name);
+        }
+        var obj ={name:"小红"};
+        func.apply(obj);//小红
+        // func.call(obj);//小红
+        func(obj);//""
+    </script>
+    <script>
+         var func = function()
+        {
+            console.log("this.name");
+        }
+        var func1 = function(a,b)
+        {
+            console.log(a+ b);
+        }
+        func.call(func1,10,123);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

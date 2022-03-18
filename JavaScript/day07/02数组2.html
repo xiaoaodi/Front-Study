@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [10,122,1231];
+        console.log(arr);   //10,122,1231
+        arr[arr.length] = 10;
+        arr[arr.length] = 10234;
+        console.log(arr.length);//5
+        console.log(arr);   //10,122,1231 10 10234
+
+        // arr.length =1;  // 改变了元素组得值
+        // console.log(arr); //只有一个元素了 10
+    </script>
+    <script>
+        var arr = new Array(10);
+        console.log(arr.length);  //10 
+        var arr1 = [10];
+        console.log(arr1.length); //1
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

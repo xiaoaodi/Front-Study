@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr =new Array(1,123,43);
+        console.log(arr);  //1,123,43依次输出
+        console.log(typeof arr); //object
+    </script>
+    <script>
+        var arr = [10,122,1231];
+        console.log(arr);//10,122,1231依次输出
+        console.log(typeof arr); //object
+    </script>
+    <script>
+        var arr = [];
+        arr[0] =10;
+        arr.push(100);
+        console.log(arr);  // 10 100
+    </script>
+
+    <script>
+        var arr = [10,122,1231];
+        console.log(arr.length);//3
+
+        arr[32] = 20;
+        console.log(arr.length);//33
+
+        arr.length =1;
+        console.log(arr); //只有一个元素了 10
+    </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>

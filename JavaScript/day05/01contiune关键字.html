@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        for(var i = 1; i < 1000; i++)
+        {
+            if(i == 100)
+            {
+                break;   //当等于100 时结束循环
+            }
+            document.write("写进前" + i + "<br />");
+        }
+    </script>
+
+    <!-- continue和 break 关键字只对最近的一次循环起作用 -->
+    <script>
+        for(var i = 1; i < 1000; i++)
+        {
+            if(i == 100)
+            {
+                continue;   //当等于100 时结束这一次的循环循环
+            }
+            document.write("写进前" + i +"<br />");
+        }
+    </script>
+
+    <script>
+        outer:
+        for(var i = 5 ; i < 10; i++)
+        {
+            for(var j = 1 ; j <5; j++)
+            {
+                continue outer;
+                document.write("这就话没有执行" + i +"<br />");
+            }
+            document.write("这就话没有执行" + i +"<br />");
+        }
+    </script>
+
+    <!-- break关键字可以使用来退出switch语句或者循环语句 -->
+    <!-- 不能再if语句中使用break 和 contiune 
+    break关键字会终止最近的那个循环  在循环中有时候提前结束一些没必要的循环有利于提高程序的运行效率-->
+</head>
+<body>
+    
+</body>
+</html>

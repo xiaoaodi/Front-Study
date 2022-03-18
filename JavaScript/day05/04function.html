@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun(){
+            console.log("写的第一个函数");
+        }
+
+        fun();//调用函数
+        console.log(typeof fun); //function
+        console.log(fun);//ƒ fun(){ console.log("写的第一个函数");     }   
+    </script>
+    <script>
+        var fun = function(a){
+            console.log("执行语句一");
+            console.log("执行语句二");
+            console.log(a+"a");
+        }
+        //调用函数
+        fun(10);  // 执行语句一 执行语句二  10a
+    </script>
+
+    <script>
+        (function (){
+            console.log("马上被执行");
+        })() //马上被执行
+    </script>
+
+    <script>
+        var obj ={name:"小飞",age:18,gander:"男"}
+        for(var i in obj)
+        {
+            console.log("property：name ="+i+"value="+obj[i]+"<br/>" );//property：name =namevalue=小飞<br/> /
+        }                                                               //property：name =agevalue=18<br/>///property：name =gandervalue=男
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

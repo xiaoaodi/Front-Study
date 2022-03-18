@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj = {name :"1231",age :12};
+        for(var i in obj)
+        {
+            console.log("水属性名字：" + i);
+            console.log("属性值:" + obj[i])// 水属性名字：name  属性值:1231 水属性名字：age 属性值:12
+        }
+    </script>
+    <script>
+        a = 123; //a是对象window的属性成员
+        console.log(window.a);  // 123
+        function func(){
+            console.log("我被调用了");
+        }
+        window.func(); //我被调用了
+        //变量的提前声明
+        console.log(sum); //undefined
+        var sum = 100;
+    </script>
+    <!-- -->
+
+    <script>
+        window.func1();
+        // window.func2(); error
+
+        // 函数的提前声明
+        function  func1(){
+            console.log("函数提前声明了");
+        }
+
+        var func2= function(){
+            console.log("函数没有提前声明了");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

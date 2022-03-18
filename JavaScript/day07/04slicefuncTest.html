@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [123,2131,231,3123,3123,131];
+        var tmp = arr.slice(3);
+        console.log(tmp); //3123,3123,131
+        console.log(arr);//123,2131,231,3123,3123,131
+    </script>
+    <script>
+        var arr = [123,2131,231,3123,3123,131];
+        var tmp = arr.slice(3,4);
+        console.log(tmp);//3123
+        console.log(arr);//123,2131,231,3123,3123,131
+    </script>
+     <script>
+        var arr = [123,2131,231,3123,3123,131];
+        var tmp = arr.splice(3,2,12313,123132);
+        console.log(tmp); //3123,3123
+        console.log(arr);//123,2131,231,3,2,12313,123132,131
+    </script>
+    <script>
+        var arr = [123,2131,231,3123,3123,131];
+        var tmp = arr.join("");
+        console.log(tmp); //123213123131233123131
+        var tmp = arr.join("-");
+        console.log(tmp); //123-2131-231-3123-3123-131
+    </script>
+    <script>
+         var arr = [123,2131,231,3123,3123,131];
+         var tmp = arr.sort(function(a,b){
+            return a- b;
+         });
+
+         console.log(tmp);
+         console.log(arr);
+         
+        // 0: 123
+        // 1: 131
+        // 2: 231
+        // 3: 2131
+        // 4: 3123
+        // 5: 3123
+    </script>
+    <script>
+        var arr = ["a","d", "g", "f","h"];
+        arr.sort();
+        console.log(arr);
+        // 0: "a"
+        // 1: "d"
+        // 2: "f"
+        // 3: "g"
+        // 4: "h"
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

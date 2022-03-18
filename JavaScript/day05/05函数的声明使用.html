@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script>
+            function add(a,b)
+            {
+                console.log(a+b);
+            }
+            add(); //NaN
+            add(10,20);//30
+            add("adad","你哈");//adad你哈
+            add(1);//NaN
+            add(true,false);//1
+            add(10,23,13,43,34);//33
+        </script>
+        <script>
+            function add(a,b)
+            {
+                return a+b;
+            }
+            function func()
+            {
+                return;
+                console.log("这句话不会再输出了");
+            }
+
+            var sum = add(10,20);
+            console.log(func());//undefined
+            console.log(sum);//30
+        </script>
+        <script>
+            var obj = {name:"小飞",age:123};
+            function input(obj)
+            {
+                console.log(obj.name + "" + obj.age);
+                var tar = new Object()
+                return tar;
+            }
+
+            var tmp = input(obj);//小飞123
+            console.log(typeof tmp); //object
+            console.log(input);
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
