@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            function bind(obj , eventStr , callback){
+				if(obj.addEventListener){
+					//大部分浏览器兼容的方式
+					obj.addEventListener(eventStr , callback , false);
+				}else{
+					/*
+					 * this是谁由调用方式决定
+					 * callback.call(obj)
+					 */
+					//IE8及以下
+					obj.attachEvent("on"+eventStr , function(){
+						//在匿名函数中调用回调函数
+						callback.call(obj);
+					});
+                }
+            };
+
+				var btn01 = document.getElementById("btn01");
+				bind(btn01 , "click" , function(){
+					alert(this);
+				});
+			
+				
+			};
+    </script>
+</head>
+<body>
+		<button id="btn01">点我一下</button>
+</body>
+</html>

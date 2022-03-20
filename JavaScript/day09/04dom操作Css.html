@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #inner{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            var box1 = document.getElementById("inner");
+
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+
+                    box1.style.width = "500px";
+                    box1.style.height =  "500px";
+                    box1.style.backgroundColor = "red";
+            }
+
+            var btn02 = document.getElementById("btn02");
+				btn02.onclick = function(){
+					alert(box1.style.width); //只有先点击按钮1后才可以读取到内联样式css样式
+				};
+        };
+    </script>
+</head>
+<body>
+    <button id= "btn01" >按钮1</button> <button id="btn02">按钮2</button>
+
+    <br /><br />
+
+    <div id= "inner" >
+    </div>
+</body>
+</html>

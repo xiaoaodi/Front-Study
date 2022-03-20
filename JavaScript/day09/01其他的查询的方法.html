@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        //获取body标签
+        window.onload = function(){
+            var bodylab = document.getElementsByTagName("body");  //通过标签取获取body
+            var bodylab1 = document.body;  //在document中有一个属性body，它保存的是body的引用
+            console.log(bodylab[0]);
+            console.log(bodylab1);
+
+            //获取html整体
+            var html  = document.documentElement;
+            console.log(html);
+
+            //获取所有的标签
+            // var htmlall= document.all;
+            var htmlall = document.getElementsByTagName("*");  //方法二：
+            console.log(htmlall.length);   //14
+            for(var i = 0; i< htmlall.length; i++)
+            {
+                console.log(htmlall[i].innerHTML);
+            }
+          
+            // ///*
+			// 	 * 根据元素的class属性值查询一组元素节点对象
+			// 	 * getElementsByClassName()可以根据class属性值获取一组元素节点对象，
+			// 	 * 	但是该方法不支持IE8及以下的浏览器
+			// 	 */
+           var names = document.getElementsByClassName("name");
+           console.log(names.length);//2
+           var divs  = document.getElementsByTagName("div");
+           console.log(divs.length);//5
+
+            //获取class为name中的所有的div
+				//.name div
+				/*
+				 * document.querySelector()
+				 * 	- 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+				 * 	- 虽然IE8中没有getElementsByClassName()但是可以使用querySelector()代替
+				 * 	- 使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
+				 */
+				var div = document.querySelector("name div");
+				console.log(div);//
+				var box1 = document.querySelector(".name")
+                console.log(box1);//
+
+                /*
+				 * document.querySelectorAll()
+				 * 	- 该方法和querySelector()用法类似，不同的是它会将符合条件的元素封装到一个数组中返回
+				 * 	- 即使符合条件的元素只有一个，它也会返回数组
+				 */
+				box1 = document.querySelectorAll(".name");
+				console.log(box1.length);//4 
+        }
+
+    </script>
+</head>
+<body>
+    <div class="inner">
+        <div id = "one">
+            <div id="oneone" class="name">
+                    你好
+            </div>
+        </div>
+        <div id = "one" class="name">
+            ？？？
+            <div>
+
+            </div>
+        </div>
+        <div id = "one">
+            three
+            <div class="name">
+                <div class="name"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

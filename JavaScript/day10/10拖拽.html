@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        	#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+			
+			#box2{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				
+				left: 200px;
+				top: 200px;
+			}
+    </style>
+    <script>
+        window.onload = function(){
+				/*
+				 * 拖拽box1元素
+				 *  - 拖拽的流程
+				 * 		1.当鼠标在被拖拽元素上按下时，开始拖拽  onmousedown
+				 * 		2.当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+				 * 		3.当鼠标松开时，被拖拽元素固定在当前位置	onmouseup
+				 */
+				//获取box1
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+				var img1 = document.getElementById("img1");
+
+				drag(box1);
+				drag(box2);
+				drag(img1);
+			};
+			
+			/*
+			 * 提取一个专门用来设置拖拽的函数
+			 * 参数：开启拖拽的元素
+			 */
+			function drag(obj){
+				//当鼠标在被拖拽元素上按下时，开始拖拽  onmousedown
+				obj.onmousedown = function(event){
+					obj.setCapture && obj.setCapture();
+					event = event || window.event;
+					var ol = event.clientX - obj.offsetLeft;
+					var ot = event.clientY - obj.offsetTop;
+					document.onmousemove = function(event){
+						event = event || window.event;
+
+						var left = event.clientX - ol;
+						var top = event.clientY - ot;
+						
+						//修改box1的位置
+						obj.style.left = left+"px";
+						obj.style.top = top+"px";
+						
+					};
+					
+					//为document绑定一个鼠标松开事件
+					document.onmouseup = function(){
+						//当鼠标松开时，被拖拽元素固定在当前位置	onmouseup
+						//取消document的onmousemove事件
+						document.onmousemove = null;
+						//取消document的onmouseup事件
+						document.onmouseup = null;
+						//当鼠标松开时，取消对事件的捕获
+						obj.releaseCapture && obj.releaseCapture();
+					};					
+					return false;
+				};
+			}
+    </script>
+</head>
+<body>
+		
+    我是一段文字
+    
+    <div id="box1"></div>
+    
+    <div id="box2"></div>
+    
+    <img src="img/an.jpg" id="img1" style="position: absolute;"/>
+</body>
+</html>

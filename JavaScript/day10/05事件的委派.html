@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+				
+				var u1 = document.getElementById("u1");
+				var btn01 = document.getElementById("btn01");
+
+				btn01.onclick = function(){
+					//创建一个li
+					var li = document.createElement("li");
+					li.innerHTML = "<a href='javascript:;' class='link'>新建的超链接</a>";
+					
+					//将li添加到ul中
+					u1.appendChild(li);
+				};
+				var allA = document.getElementsByTagName("a");
+				u1.onclick = function(event){
+					event = event || window.event;
+					if(event.target.className == "link"){
+						alert("我是ul的单击响应函数");
+					}
+					
+				};
+            }
+    </script>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    
+    <ul id="u1" style="background-color: #bfa;">
+        <li>
+            <p>我是p元素</p>
+        </li>
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+    </ul>
+    
+</body>
+</html>

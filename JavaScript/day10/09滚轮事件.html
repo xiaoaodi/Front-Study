@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       #box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+   </style>
+    <script>
+        window.onload = function(){
+				var box1 = document.getElementById("box1");
+				box1.onmousewheel = function(event){
+					
+					event = event || window.event;
+					if(event.wheelDelta > 0 || event.detail < 0){ //event.detail ie8的属性值
+						//向上滚，box1变短
+						box1.style.height = box1.clientHeight - 10 + "px";
+						
+					}else{
+						//向下滚，box1变长
+						box1.style.height = box1.clientHeight + 10 + "px";
+					}
+					
+					/*
+					 * 使用addEventListener()方法绑定响应函数，取消默认行为时不能使用return false
+					 * 需要使用event来取消默认行为event.preventDefault();
+					 * 但是IE8不支持event.preventDefault();这个玩意，如果直接调用会报错
+					 */
+					event.preventDefault && event.preventDefault();
+					return false;	
+				};
+				
+				//为火狐绑定滚轮事件
+				bind(box1,"DOMMouseScroll",box1.onmousewheel);	
+			};
+			
+			function bind(obj , eventStr , callback){
+				if(obj.addEventListener){
+					obj.addEventListener(eventStr , callback , false);
+				}else{
+					obj.attachEvent("on"+eventStr , function(){
+						callback.call(obj);
+					});
+				}
+			}
+    </script>
+</head>
+<body style="height: 2000px;">
+		
+		<div id="box1"></div>
+		
+	</body>
+</html>

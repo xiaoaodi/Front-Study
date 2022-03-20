@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+    
+        .btn{
+            width: 120px;
+            height: 30px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>  
+    <button class = "btn" id ="btn" value="值">我是个按钮</button>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.innerHTML = "我改变了这个名字";
+        btn.onclick = function(){
+            console.log(btn.className  + "id:"+btn.id ); 
+        } //btnid:btn
+    </script>
+</body>
+</html>

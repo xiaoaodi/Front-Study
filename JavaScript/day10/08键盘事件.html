@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+
+            document.onkeydown =function(event){
+                event = event || window.event;
+                if(event.keyCode == 89 && event.ctrlKey)
+                {
+                    alert("ctrl + y 同时被按下");
+                }
+            }
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event)
+            {
+                event = event || window.event;
+
+                if(event.keyCode >=48 && event.keyCode<= 57)
+                {
+                    return false;  //不能舒服数字
+                }
+
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="inner">
+</body>
+</html>
