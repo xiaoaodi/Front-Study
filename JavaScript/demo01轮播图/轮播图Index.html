@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <!-- 引入css样式 -->
+    <link rel="stylesheet" href="./css/lunbotu.css">
+    <!-- 引入写好的工具 -->
+    <script src="./js/tools.js"></script>
+    <script>
+        window.onload = function(){
+    
+        //    1.动态的处理ul的宽度,确保能装下水平的图片
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 520 * imgArr.length + "px";
+
+            // 2.设置导航栏居中（对父级元素向左偏移居中）
+            var navDiv = document.getElementById("navDiv");
+			var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2  + "px";
+
+            // 3.对所有的超链接操作
+            var index = 0;
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            //4. 对所有的超链接绑定函数
+            for(var i=0; i<allA.length ; i++){
+					allA[i].num = i;  //超链接绑定自身的索引
+					allA[i].onclick = function(){
+						clearInterval(timer);
+						index = this.num;
+						setA();
+						move(imgList , "left" , -520 * index , 20 , function(){
+							autoChange();
+						});
+						
+					};
+				}
+			  autoChange();
+
+
+                 //创建一个方法用来设置选中的a
+				function setA(){
+                    
+					if(index >= imgArr.length - 1){
+						index = 0;
+						imgList.style.left = 0;
+					}
+					for(var i=0 ; i<allA.length ; i++){
+						allA[i].style.backgroundColor = "";
+					}
+
+					allA[index].style.backgroundColor = "black";
+				};
+				
+                //自动切换图片
+				var timer;
+				function autoChange(){
+					timer = setInterval(function(){
+						index++;
+						index %= imgArr.length;
+						move(imgList , "left" , -520*index , 20 , function(){
+							setA();
+						});
+						
+					},2000);
+					
+				}
+
+
+        };
+
+    </script>
+</head>
+<body>
+    <!-- 创建一个外部的div，来作为大的容器 -->
+    <div id="outer">
+        <!-- 创建一个ul，用于放置图片 -->
+        <ul id="imgList">
+            <li><img src="img/1.jpg"/></li>
+            <li><img src="img/2.jpg"/></li>
+            <li><img src="img/3.jpg"/></li>
+            <li><img src="img/4.jpg"/></li>
+            <li><img src="img/5.jpg"/></li>
+            <li><img src="img/1.jpg"/></li>
+        </ul>
+        <!--创建导航按钮-->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</html>

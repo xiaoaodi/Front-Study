@@ -1,7 +1,6 @@
 ---
 title: JavaScript学习笔记（第四部分）总共四部分
-date: 2022/3/20 22:30
-
+date: 2022/3/21 22:30
 
 ---
 
@@ -778,6 +777,7 @@ Screen：代表用户的屏幕的信息，通过该对象可以获取到用户�
 userAgent是一个字符串，这个字符串中包含有用来描述浏览器信息的内容，
 不同的浏览器会有不同的userAgent
 
+```html
 火狐的userAgent
 Mozilla5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko20100101 Firefox50.0
 
@@ -796,8 +796,11 @@ Mozilla5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident7.0; SLCC2; .NE
 IE11
 Mozilla5.0 (Windows NT 6.1; WOW64; Trident7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko
 在IE11中已经将微软和IE相关的标识都已经去除了，所以我们基本已经不能通过UserAgent来识别一个浏览器是否是IE了
-
 ```
+
+
+
+```html
 alert(navigator.appName);  
   
 var ua = navigator.userAgent;  
@@ -818,19 +821,56 @@ alert("你是IE11，枪毙了你~~~");
 #### 10.2 History
 
 对象可以用来操作浏览器向前或向后翻页
-length
-属性，可以获取到当成访问的链接数量
-back()
-可以用来回退到上一个页面，作用和浏览器的回退按钮一样
-forward()
-可以跳转下一个页面，作用和浏览器的前进按钮一样
-go()
-可以用来跳转到指定的页面
+length : 属性，可以获取到当成访问的链接数量
+back() : 可以用来回退到上一个页面，作用和浏览器的回退按钮一样
+forward() : 可以跳转下一个页面，作用和浏览器的前进按钮一样
+go() :可以用来跳转到指定的页面
 它需要一个整数作为参数
-1:表示向前跳转一个页面 相当于forward()
-2:表示向前跳转两个页面
--1:表示向后跳转一个页面
--2:表示向后跳转两个页面
+1: 表示向前跳转一个页面 相当于forward()
+2: 表示向前跳转两个页面
+-1: 表示向后跳转一个页面
+-2: 表示向后跳转两个页面
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * History
+			 * 	- 对象可以用来操作浏览器向前或向后翻页
+			 */
+			window.onload = function(){
+				
+				//获取按钮对象
+				var btn = document.getElementById("btn");
+				
+				btn.onclick = function(){
+					alert(history.length);//可以获取到当成访问的链接数量
+					history.back(); //可以用来回退到上一个页面，作用和浏览器的回退按钮一样
+					history.forward(); //可以跳转下一个页面，作用和浏览器的前进按钮一样
+					history.go(-2);//表示向后跳转两个页面
+				};
+				
+			};
+			
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn">点我一下</button>
+		
+		<h1>History</h1>
+		
+		<a href="01.BOM.html">去BOM</a>
+	</body>
+</html>
+
+```
+
+
 
 #### 10.3 Location
 
@@ -839,31 +879,74 @@ go()
 alert(location);
 如果直接将location属性修改为一个完整的路径，或相对路径
 则我们页面会自动跳转到该路径，并且会生成相应的历史记录
+
 location = “http:[www.baidu.com"](http://www.baidu.com"/);
 location = “01.BOM.html”;
 assign()
 用来跳转到其他的页面，作用和直接修改location一样
+
 reload()
 用于重新加载当前页面，作用和刷新按钮一样
 如果在方法中传递一个true，作为参数，则会强制清空缓存刷新页面
+
 location.reload(true);
 replace()
 可以使用一个新的页面替换当前页面，调用完毕也会跳转页面
 不会生成历史记录，不能使用回退按钮回退
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * Location
+			 * 	- 该对象中封装了浏览器的地址栏的信息
+			 */
+			window.onload = function(){
+				
+				//获取按钮对象
+				var btn = document.getElementById("btn");				
+				btn.onclick = function(){
+					alert(location);//获取到地址栏的信息（当前页面的完整路径）
+					location = "http://www.baidu.com";//我们页面会自动跳转到该路径，并且会生成相应的历史记录
+					location = "01.BOM.html";
+					location.assign("http://www.baidu.com");//用来跳转到其他的页面，作用和直接修改location一样
+					location.reload(true);//用于重新加载当前页面，作用和刷新按钮一样
+					location.replace("01.BOM.html");//可以使用一个新的页面替换当前页面，调用完毕也会跳转页面 不会生成历史记录，不能使用回退按钮回退
+					
+				};
+				
+			};
+			
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn">点我一下</button>
+		
+		<h1>Location</h1>
+		
+		<input type="text" />
+		<a href="01.BOM.html">去BOM</a>
+	</body>
+</html>
+
+```
+
+
 
 #### 10.4 window
 
 ##### 10.4.1定时器
 
 **setInterval()**
-定时调用
-可以将一个函数，每隔一段时间执行一次
-参数：
-1.回调函数，该函数会每隔一段时间被调用一次
-2.每次调用间隔的时间，单位是毫秒
+定时调用 : 可以将一个函数，每隔一段时间执行一次
+参数：1.回调函数，该函数会每隔一段时间被调用一次   2.每次调用间隔的时间，单位是毫秒
 
-返回值：
-返回一个Number类型的数据
+返回值： 返回一个Number类型的数据
 这个数字用来作为定时器的唯一标识
 **clearInterval()可以用来关闭一个定时器**
 方法中需要一个定时器的标识作为参数，这样将关闭标识对应的定时器
@@ -872,15 +955,35 @@ clearInterval()可以接收任意参数，
 如果参数是一个有效的定时器的标识，则停止对应的定时器
 如果参数不是一个有效的标识，则什么也不做
 
-```
-var num = 1;  
-var timer = setInterval(function() {  
-	count.innerHTML = num++;  
-	if(num == 11) {  
-		//关闭定时器  
-		clearInterval(timer);  
-	}  
-}, 1000);
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var h1 = document.getElementById("index");
+
+            var num = 0;
+            var timer = setInterval(function(){
+                h1.innerText = num++;
+                if(num == 1000)
+                {
+                    clearInterval(timer);
+                } 
+            }, 100);
+        };
+
+    </script>
+</head>
+<body>
+    <h2 id="index"></h2>
+    
+</body>
+</html>
 ```
 
 ##### 10.4.2 延时调用
@@ -891,14 +994,36 @@ var timer = setInterval(function() {
 延时调用和定时调用的区别，定时调用会执行多次，而延时调用只会执行一次
 延时调用和定时调用实际上是可以互相代替的，在开发中可以根据自己需要去选择
 
-var timer = setTimeout(function(){
-console.log(num++);
-},3000);
+clearTimeout(timer);()来关闭一个延时调用clearTimeout(timer);
 
-使用clearTimeout()来关闭一个延时调用
-clearTimeout(timer);
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var slowtime  = document.getElementById("slowtime");
+            var timer = setTimeout(function(){
+                slowtime.innerText = "我是隔三秒钟之后促发的"
+            },3000);
+            // clearTimeout(timer); //加上这就话上述的语句不会调用
+        };
+    </script>
+</head>
+<body>
+    <h1 id="slowtime"> 初始化的值 </h1>
+    <br>
+</body>
+</html>
 
-\#类的操作
+
+```
+
+**类的操作**
 
 **直接修改元素的类css：**
 
@@ -907,63 +1032,121 @@ clearTimeout(timer);
 我们可以通过修改元素的class属性来间接的修改样式.这样一来，我们只需要修改一次，即可同时修改多个样式，浏览器只需要重新渲染页面一次，性能比较好，
 并且这种方式，可以使表现和行为进一步的分离
 
-```
+```html
 box.className += " b2";	//注意有空格，添加class属性
 ```
 
-```
-//定义一个函数，用来向一个元素中添加指定的class属性值  
-/*  
- * 参数:  
- * 	obj 要添加class属性的元素  
- *  cn 要添加的class值  
- * 	  
- */  
-function addClass(obj, cn) {  
-	if (!hasClass(obj, cn)) {  
-		obj.className += " " + cn;  
-	}  
-}  
-/*  
- * 判断一个元素中是否含有指定的class属性值  
- * 	如果有该class，则返回true，没有则返回false  
- * 	  
- */  
-function hasClass(obj, cn) {  
-	var reg = new RegExp("\\b" + cn + "\\b");  
-	return reg.test(obj.className);  
-}  
-/*  
- * 删除一个元素中的指定的class属性  
- */  
-function removeClass(obj, cn) {  
-	//创建一个正则表达式  
-	var reg = new RegExp("\\b" + cn + "\\b");  
-	//删除class  
-	obj.className = obj.className.replace(reg, "");  
-}  
-/*  
- * toggleClass可以用来切换一个类  
- * 	如果元素中具有该类，则删除  
- * 	如果元素中没有该类，则添加  
- */  
-function toggleClass(obj , cn){	  
-	//判断obj中是否含有cn  
-	if(hasClass(obj , cn)){  
-		//有，则删除  
-		removeClass(obj , cn);  
-	}else{  
-		//没有，则添加  
-		addClass(obj , cn);  
-	}  
-}
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.b1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			
+			.b2{
+				height: 300px;
+				background-color: yellow;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementById("box");
+				var btn01 = document.getElementById("btn01");
+				
+				//为btn01绑定单击响应函数
+				btn01.onclick = function(){		
+					toggleClass(box,"b2");
+				};
+			};
+			
+			//定义一个函数，用来向一个元素中添加指定的class属性值
+			/*
+			 * 参数:
+			 * 	obj 要添加class属性的元素
+			 *  cn 要添加的class值
+			 * 	
+			 */
+			function addClass(obj , cn){
+				
+				//检查obj中是否含有cn
+				if(!hasClass(obj , cn)){
+					obj.className += " "+cn;
+				}
+				
+			}
+			
+			/*
+			 * 判断一个元素中是否含有指定的class属性值
+			 * 	如果有该class，则返回true，没有则返回false
+			 */
+			function hasClass(obj , cn){			
+				//判断obj中有没有cn class
+				//创建一个正则表达式
+				//var reg = /\bb2\b/;
+				var reg = new RegExp("\\b"+cn+"\\b");
+				
+				return reg.test(obj.className);
+				
+			}
+			
+			/*
+			 * 删除一个元素中的指定的class属性
+			 */
+			function removeClass(obj , cn){
+				//创建一个正则表达式
+				var reg = new RegExp("\\b"+cn+"\\b");
+				
+				//删除class
+				obj.className = obj.className.replace(reg , "");
+				
+			}
+			
+			/*
+			 * toggleClass可以用来切换一个类
+			 * 	如果元素中具有该类，则删除
+			 * 	如果元素中没有该类，则添加
+			 */
+			function toggleClass(obj , cn){
+				
+				//判断obj中是否含有cn
+				if(hasClass(obj , cn)){
+					//有，则删除
+					removeClass(obj , cn);
+				}else{
+					//没有，则添加
+					addClass(obj , cn);
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn01">点击按钮以后修改box的样式</button>
+		
+		<br /><br />
+		
+		<div id="box" class="b1 b2"></div>
+	</body>
+</html>
+
 ```
 
-# JSON
+### 11. JSON
 
 **JavaScript Object Notation** JS对象表示法
 
-## JSON 格式
+#### 11.1 JSON 格式
 
 1. 复合类型的值只能是数组或对象，不能是函数、正则表达式对象、日期对象。
 2. 原始类型的值只有四种：字符串、数值（必须以十进制表示）、布尔值和`null`（不能使用`NaN`, `Infinity`, `-Infinity`和`undefined`）。
@@ -990,15 +1173,45 @@ JSON中允许的值：
 
 举例：
 
-```
-var arr = '[1,2,3,"hello",true]';  
-			  
-var obj2 = '{"arr":[1,2,3]}';  
-  
-var arr2 ='[{"name":"孙悟空","age":18,"gender":"男"},{"name":"孙悟空","age":18,"gender":"男"}]';
-```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <script>
+        window.onload = function(){
+            var obj = {
+                name : "aodi",
+                age : 18,
+                gander: "man",
+                boj1 :{aihao: "打篮球",water : "coco"},
+                arr : [1021,231,231,312,,321,231]
+            };
 
-复制
+            //转化为json的字符串
+            var str = JSON.stringify(obj);
+            console.log(str); //{"name":"aodi","age":18,"gander":"man","boj1":{"aihao":"打篮球","water":"coco"}}
+            console.log( typeof str); //string
+
+            // 将json的字符串转化为对象
+            var obj1  = JSON.parse(str);
+            console.log(typeof obj1); //object
+            console.log(obj1.name); //aodi 
+            console.log(obj1.boj1.aihao); //打篮球
+            console.log(obj1.arr.length); //7
+            console.log(obj1.arr[2]); //231
+
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+```
 
 JSON工具类
 
@@ -1024,13 +1237,13 @@ JSON这个对象在IE7及以下的浏览器中不支持，所以在这些浏览�
 
 
 
-# other
+### 12 other
 
-## localStorage
+#### 12.1 localStorage
 
 只读的`localStorage` 属性允许你访问一个[`Document`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document) 源（origin）的对象 [`Storage`](https://developer.mozilla.org/zh-CN/docs/Web/API/Storage)；其存储的数据能在跨浏览器会话保留。`localStorage` 类似 [`sessionStorage`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage)，但其区别在于：存储在 `localStorage` 的数据可以长期保留；而当页面会话结束——也就是说，当页面被关闭时，存储在 `sessionStorage` 的数据会被清除 。
 
-## eval()
+#### 12 .2 eval()
 
 eval()
 这个函数可以用来执行一段字符串形式的JS代码，并将执行结果返回
@@ -1040,50 +1253,82 @@ eval()
 eval()这个函数的功能很强大，可以直接执行一个字符串中的js代码，
 但是在开发中尽量不要使用，首先它的执行性能比较差，然后它还具有安全隐患
 
-```
-var str = '{"name":"孙悟空","age":18,"gender":"男"}';  
-var obj = eval("("+str+")");  
+```html
+<script>
+        window.onload = function(){
+            var str = '{"name":"孙悟空","age":18,"gender":"男"}';  
+            var obj = eval("("+str+")");    
+            console.log(obj);//name":"孙悟空","age":18,"gender":"男
+            console.log(typeof obj); //object
+
+        };
+    </script> 
 ```
 
-编码
+Unicode 编码问题
 
-```
-<!DOCTYPE html>  
-<html>  
-	<head>  
-		<meta charset="UTF-8">  
-		<title></title>  
-		<script type="text/javascript">  
-			  
-			/*  
-			 * 在字符串中使用转义字符输入Unicode编码  
-			 * 	\u四位编码  
-			 */  
-			console.log("\u2620");	  
-		</script>  
-	</head>  
-	<body>		  
-		<!--在网页中使用Unicode编码  
-			&#编码; 这里的编码需要的是10进制  
-		-->  
-		<h1 style="font-size: 200px;">&#9760;</h1>  
-		<h1 style="font-size: 200px;">&#9856;</h1>		  
-	</body>  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            console.log("\u1231");//ሱ
+        };
+    </script>
+</head>
+<body>
+    <!-- ҵ -->
+    <h1 style="font-size: 50px;">&#1205</h1>
+    <!-- ᕎ -->
+    <h1 style="font-size: 50px;">&#5454</h1> 
+    
+</body>
 </html>
 ```
-
-复制
 
 confirm()用于弹出一个带有确认和取消按钮的提示框
 需要一个字符串作为参数，该字符串将会作为提示文字显示出来
 如果用户点击确认则会返回true，如果点击取消则返回false
 var flag = confirm(“确认删除”+name+”吗?”);
 
-## # 原生js
-
-## 原生js实现复制内容到剪切板
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            if(confirm("确认继续执行嘛？"))
+            {
+                alert("我执行了");
+            }
+            else{
+                alert("我退出了");
+            }
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
 ```
+
+
+
+### 12.3 原生js
+
+**原生js实现复制内容到剪切板**
+
+```html
 copy() {  
     const input = document.createElement("input");  
     document.body.appendChild(input);  
@@ -1097,18 +1342,326 @@ copy() {
 }
 ```
 
-![image-20220320174418595](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320174418595.png)
 
-![image-20220320174715130](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320174715130.png)
 
-![image-20220320174925361](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320174925361.png)
 
-![image-20220320175057044](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320175057044.png)
 
-![image-20220320175131406](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320175131406.png)
+**轮播图practice**
 
-![image-20220320202807313](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320202807313.png)
+**js代码 tools**
 
-![image-20220320203014949](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320203014949.png)
+```js
+//尝试创建一个可以执行简单动画的函数
+/*
+ * 参数：
+ * 	obj:要执行动画的对象
+ * 	attr:要执行动画的样式，比如：left top width height
+ * 	target:执行动画的目标位置
+ * 	speed:移动的速度(正数向右移动，负数向左移动)
+ *  callback:回调函数，这个函数将会在动画执行完毕以后执行
+ */
+function move(obj, attr, target, speed, callback) {
+	clearInterval(obj.timer);
+	var current = parseInt(getStyle(obj, attr));
 
-![image-20220320204745412](C:\Users\hasee\AppData\Roaming\Typora\typora-user-images\image-20220320204745412.png)
+	//判断速度的正负值
+	//如果从0 向 800移动，则speed为正
+	//如果从800向0移动，则speed为负
+	if(current > target) {
+		//此时速度应为负值
+		speed = -speed;
+	}
+
+	//开启一个定时器，用来执行动画效果
+	//向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
+	obj.timer = setInterval(function() {
+
+		//获取box1的原来的left值
+		var oldValue = parseInt(getStyle(obj, attr));
+
+		//在旧值的基础上增加
+		var newValue = oldValue + speed;
+
+		//判断newValue是否大于800
+		//从800 向 0移动
+		//向左移动时，需要判断newValue是否小于target
+		//向右移动时，需要判断newValue是否大于target
+		if((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+			newValue = target;
+		}
+
+		//将新值设置给box1
+		obj.style[attr] = newValue + "px";
+
+		//当元素移动到0px时，使其停止执行动画
+		if(newValue == target) {
+			//达到目标，关闭定时器
+			clearInterval(obj.timer);
+			//动画执行完毕，调用回调函数
+			callback && callback();
+		}
+	}, 30);
+}
+
+/*
+ * 定义一个函数，用来获取指定元素的当前的样式
+ * 参数：
+ * 		obj 要获取样式的元素
+ * 		name 要获取的样式名
+ */
+function getStyle(obj, name) {
+
+	if(window.getComputedStyle) {
+		//正常浏览器的方式，具有getComputedStyle()方法
+		return getComputedStyle(obj, null)[name];
+	} else {
+		return obj.currentStyle[name];
+	}
+}
+
+//定义一个函数，用来向一个元素中添加指定的class属性值
+/*
+ * 参数:
+ * 	obj 要添加class属性的元素
+ *  cn 要添加的class值
+ */
+function addClass(obj, cn) {
+	if(!hasClass(obj, cn)) {
+		obj.className += " " + cn;
+	}
+}
+
+/*
+ * 判断一个元素中是否含有指定的class属性值
+ * 	如果有该class，则返回true，没有则返回false
+ * 	
+ */
+function hasClass(obj, cn) {
+	var reg = new RegExp("\\b" + cn + "\\b");
+	return reg.test(obj.className);
+}
+
+/*
+ * 删除一个元素中的指定的class属性
+ */
+function removeClass(obj, cn) {
+	var reg = new RegExp("\\b" + cn + "\\b");
+	obj.className = obj.className.replace(reg, "");
+}
+
+/*
+ * toggleClass可以用来切换一个类
+ * 	如果元素中具有该类，则删除
+ * 	如果元素中没有该类，则添加
+ */
+function toggleClass(obj, cn) {
+	if(hasClass(obj, cn)) {
+		removeClass(obj, cn);
+	} else {
+		addClass(obj, cn);
+	}
+
+}
+
+```
+
+**css代码**
+
+```css
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * 设置outer的样式
+ */
+#outer{
+    /*设置宽和高*/
+    width: 520px;
+    height: 333px;
+    /*居中*/
+    margin: 50px auto;
+    /*设置背景颜色*/
+    background-color: greenyellow;
+    /*设置padding*/
+    padding: 10px 0;
+    /*开启相对定位*/
+    position: relative;
+    /*裁剪溢出的内容*/
+    overflow: hidden;
+}
+
+/*设置imgList*/
+#imgList{
+    /*去除项目符号*/
+    list-style: none;
+    /*设置ul的宽度*/
+    /*width: 2600px;*/
+    /*开启绝对定位*/
+    position: absolute;
+    /*设置偏移量*/
+    /*
+     * 每向左移动520px，就会显示到下一张图片
+     */
+    left: 0px;
+}
+
+/*设置图片中的li*/
+#imgList li{
+    /*设置浮动*/
+    float: left;
+    /*设置左右外边距*/
+    margin: 0 10px;
+}
+
+/*设置导航按钮*/
+#navDiv{
+    /*开启绝对定位*/
+    position: absolute;
+    /*设置位置*/
+    bottom: 15px;
+    /*设置left值
+         outer宽度  520
+         navDiv宽度 25*5 = 125
+             520 - 125 = 395/2 = 197.5
+     * */
+    /*left: 197px;*/
+}
+
+#navDiv a{
+    /*设置超链接浮动*/
+    float: left;
+    /*设置超链接的宽和高*/
+    width: 15px;
+    height: 15px;
+    /*设置背景颜色*/
+    background-color: red;
+    /*设置左右外边距*/
+    margin: 0 5px;
+    /*设置透明*/
+    opacity: 0.5;
+    /*兼容IE8透明*/
+    filter: alpha(opacity=50);
+}
+
+/*设置鼠标移入的效果*/
+#navDiv a:hover{
+    background-color: black;
+}
+```
+
+**index.html**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <!-- 引入css样式 -->
+    <link rel="stylesheet" href="./css/lunbotu.css">
+    <!-- 引入写好的工具 -->
+    <script src="./js/tools.js"></script>
+    <script>
+        window.onload = function(){
+    
+        //    1.动态的处理ul的宽度,确保能装下水平的图片
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 520 * imgArr.length + "px";
+
+            // 2.设置导航栏居中（对父级元素向左偏移居中）
+            var navDiv = document.getElementById("navDiv");
+			var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2  + "px";
+
+            // 3.对所有的超链接操作
+            var index = 0;
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            //4. 对所有的超链接绑定函数
+            for(var i=0; i<allA.length ; i++){
+					allA[i].num = i;  //超链接绑定自身的索引
+					allA[i].onclick = function(){
+						clearInterval(timer);
+						index = this.num;
+						setA();
+						move(imgList , "left" , -520 * index , 20 , function(){
+							autoChange();
+						});
+						
+					};
+				}
+			  autoChange();
+
+
+                 //创建一个方法用来设置选中的a
+				function setA(){
+                    
+					if(index >= imgArr.length - 1){
+						index = 0;
+						imgList.style.left = 0;
+					}
+					for(var i=0 ; i<allA.length ; i++){
+						allA[i].style.backgroundColor = "";
+					}
+
+					allA[index].style.backgroundColor = "black";
+				};
+				
+                //自动切换图片
+				var timer;
+				function autoChange(){
+					timer = setInterval(function(){
+						index++;
+						index %= imgArr.length;
+						move(imgList , "left" , -520*index , 20 , function(){
+							setA();
+						});
+						
+					},2000);
+					
+				}
+
+
+        };
+
+    </script>
+</head>
+<body>
+    <!-- 创建一个外部的div，来作为大的容器 -->
+    <div id="outer">
+        <!-- 创建一个ul，用于放置图片 -->
+        <ul id="imgList">
+            <li><img src="img/1.jpg"/></li>
+            <li><img src="img/2.jpg"/></li>
+            <li><img src="img/3.jpg"/></li>
+            <li><img src="img/4.jpg"/></li>
+            <li><img src="img/5.jpg"/></li>
+            <li><img src="img/1.jpg"/></li>
+        </ul>
+        <!--创建导航按钮-->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</html>
+```
+
+
+
+hexo博客的地址：http://xiao_aodi.gitee.io/hexopage/
+
+js学习笔记及练习demo：https://github.com/xiaoaodi/Front-Study/tree/master/JavaScript
+
+个人博客地址scdn：https://blog.csdn.net/qq_46087622?type=blog
+
+耗时五天，js基本的语法学习计划完成，下面将写demo巩固学习的知识，继续加油！！！

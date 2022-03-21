@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var slowtime  = document.getElementById("slowtime");
+            var timer = setTimeout(function(){
+                slowtime.innerText = "我是隔三秒钟之后促发的"
+            },3000);
+            // clearTimeout(timer); //加上这就话上述的语句不会调用
+        };
+    </script>
+</head>
+<body>
+    <h1 id="slowtime"> 初始化的值 </h1>
+    <br>
+</body>
+</html>
