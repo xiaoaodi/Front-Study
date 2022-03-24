@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        我是和 dada
+
+    </h1>
+    <button>阿牛请求且阿</button>
+    <script>
+        document.getElementsByTagName("button")[0].onclick = function(){
+            var hxs = new XMLHttpRequest();
+            hxs.open('GET',"/data")
+            hxs.send();
+            hxs.onreadystatechange = function(){
+                if(hxs.readyState == 4)
+                {
+                    if(hxs.status >= 200 && hxs.status<=300)
+                    {
+                        console.log(hxs.response);
+                    }
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>

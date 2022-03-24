@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            width: 300px;
+            height: 100px;
+            background-color: #fff;
+            border: solid 1px #90b;
+        }
+
+    </style>
+    <script>
+        //移动鼠标去触发事件 
+        window.onload = function(){
+            var div = document.getElementById("btn");
+            div.addEventListener("mouseover",function(){ 
+                const hxr = new XMLHttpRequest();
+                hxr.timeout = 2000;
+                hxr.ontimeout =function(){
+                    alert("网络超时了")
+                }
+                hxr.onerror = function(){
+                    alert("网络不给力呀！！！")
+                }
+
+                hxr.open('POST','http://127.0.0.1:8000/delay_server?t=' + Date.now()); //解决ie的缓存问题
+
+                hxr.send("a:100&:200&c:43000");
+
+                hxr.onreadystatechange = function(){
+                    if(hxr.readyState == 4)
+                    {
+                        if(hxr.status >= 200 && hxr.status <= 300)
+                        {
+                            console.log(hxr.status)
+                            console.log(hxr.statusText)
+                            console.log(hxr.getAllResponseHeaders())
+                            console.log(hxr.response);
+                            div.innerHTML = hxr.response
+                        }
+                    }
+                }
+
+            })
+        }
+    </script>
+</head>
+<body>
+    <button>点击发送请求</button>
+    <br>
+    <div id = "btn"> </div>
+</body>
+</html>

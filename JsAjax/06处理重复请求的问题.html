@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>btn1</button>
+    <button>btn2</button>
+    <script>
+        let isSending = false;
+        var btns = document.getElementsByTagName("button");
+        btns[0].onclick = function(){
+            if(isSending)
+            {
+                hxr.abort();
+            }
+
+            hxr = new XMLHttpRequest();
+            isSending = true;
+            hxr.open("GET","http://127.0.0.1:8000/resend_server")
+            hxr.send();
+            hxr.onreadystatechange =function(){
+                if(hxr.readyState ==4)
+                {
+                    isSending = false; 
+                }
+            }
+        }
+
+
+        btns[1].onclick = function(){
+            hxr.abort()
+        }
+
+    </script>
+</body>
+</html>

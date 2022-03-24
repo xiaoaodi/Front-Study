@@ -1,10 +1,18 @@
-var arr = [1, 3, 3, 4, 23,434,5, 5, 4]
-        for (var i = 0; i < arr.length; i++) {
-            for (var j = i + 1; j < arr.length; j++) {
-                if (arr[i] == arr[j]) {
-                    arr.splice(j, 1)
-                    j--;
-                }       
-            }
+function fib(n){
+        let i, temp0, temp1, temp2;        
+        if(n<=1) 
+        {
+          return n; 
         }
-        console.log("first", arr) //
+       
+        temp1 = 0;  
+        temp2 = 1;  
+        for(i = 2; i <= n; i++){  
+            temp0 = temp1 + temp2;  
+            temp2 = temp1;  
+            temp1 = temp0;  
+        }
+
+        return temp0;  
+};
+console.log(fib(11));

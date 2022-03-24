@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link crossorigin="anonymous" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <button>jquery发送ajax请求</button>
+    <br>
+    <button>post</button>
+    <br>
+    <button>GET</button>
+    <br>
+    <button>通用的方法发送</button>
+
+    <script>
+        $('button').eq(0).click(function(){
+            $.get('http://127.0.0.1:8000/jquery_server',{a:100,b:220},function(data){
+                console.log(data)
+            })
+        })
+        $('button').eq(1).click(function(){
+            $.post('http://127.0.0.1:8000/jquery_server',{a:100,b:220},function(data){
+                console.log(data)
+            })
+        })
+        $('button').eq(2).click(function(){
+            $.ajax({
+                //url
+                url: 'http://127.0.0.1:8000/jquery_serve',
+                //参数
+                data: {a:100, b:200},
+                //请求类型
+                type: 'GET',
+                //响应体结果
+                dataType: 'json',
+                //成功的回调
+                success: function(data){
+                    console.log(data);
+                },
+                //超时时间
+                timeout: 2000,
+                //失败的回调
+                error: function(){
+                    console.log('出错啦!!');
+                },
+                //头信息
+                headers: {
+                    c:300,
+                    d:400
+                }
+            });
+        });
+    </script>
+</body>
+</html>

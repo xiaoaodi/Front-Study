@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+     // typeof返回数据类型的字符串表达
+    var obj
+    //注意:typeof返回的是字符串
+    console.log(obj, typeof obj, typeof obj === 'undefined',obj === undefined )  // undefined 'undefined' true true
+    console.log(undefined === 'undefined') //false  undefined不是字符串
+
+    obj = 40000
+    console.log(typeof a==='number') //true
+
+    obj = 'aodi'
+    console.log(typeof obj==='string') //true
+    console.log(typeof obj==='String') //false  -->注意,返回的类型为小写
+    obj = true
+    console.log(typeof obj==='boolean') //true
+    obj = null
+    console.log(typeof obj, obj===null) // 'object'  true
+
+    let b={}
+    console.log(typeof b,typeof null, '-------') // 'object' 'object'  -->所以Typeof不能判断null与object
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link crossorigin="anonymous" href="http://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap-grid.css" rel="stylesheet">
+    <script src="http://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+</head>
+<body>
+    <button>axios发送ajax请求</button>
+    <br>
+    <button>post</button>
+    <br>
+    <button>GET</button>
+    <br>
+    <button>通用的方法发送</button>
+
+    <script>
+        //配置 baseURL
+        axios.defaults.baseURL = 'http://127.0.0.1:8000';
+        var btns = document.getElementsByTagName("button");
+        // btns[0].onclick = function () {
+        // //GET 请求
+        // axios.get('/axios_server', {
+        //     //url 参数
+        //     params: {
+        //     id: 100,
+        //     vip: 7
+        //     },
+        //     //请求头信息
+        //     headers: {
+        //     name: 'atguigu',
+        //     age: 20
+        //     }
+        // }).then(value => {
+        //     console.log(value);
+        // });
+        // }
+
+        btns[1].onclick = function () {
+        axios.post('/axios-server', {
+        username: 'admin',
+        password: 'admin'
+         }, {
+        //url 
+        params: {
+          id: 200,
+          vip: 9
+        },
+        //请求头参数
+        headers: {
+          height: 180,
+          weight: 180,
+        }
+      });
+    }
+
+
+    //配置 baseURL
+    // axios.defaults.baseURL = 'http://127.0.0.1:8000';
+	btns[2].onclick = function () {
+      axios({
+        //请求方法
+        method: 'POST',
+        //url
+        url: '/axios-server',
+        //url参数
+        params: {
+          vip: 10,
+          level: 30
+        },
+        //头信息,此部分如果使用自定义的头信息,需要服务端进行相应修改,正常不设置
+        headers: {
+          a: 100,
+          b: 200
+        },
+        //请求体参数
+        data: {
+          username: 'admin',
+          password: 'admin'
+        }
+      }).then(response => {
+        //响应状态码
+        console.log(response.status);
+        //响应状态字符串
+        console.log(response.statusText);
+        //响应头信息
+        console.log(response.headers);
+        //响应体
+        console.log(response.data);
+      })
+    }
+    </script>
+</body>
+</html>
+</body>
+</html>
