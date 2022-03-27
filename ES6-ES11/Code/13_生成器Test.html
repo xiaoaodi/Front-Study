@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function one (){
+        //     setTimeout(()=>{
+        //         console.log(1111)
+        //     },1000)
+        // }
+        // function two (){
+        //     setTimeout(()=>{
+        //         console.log(2222)
+        //     },2000)
+        // }
+
+        // function three (){
+        //     setTimeout(()=>{
+        //         console.log(3333)
+        //     },3000)
+        // }
+
+        // function *gen(){
+        //     yield one()
+        //     yield two()
+        //     yield three()
+        // }
+
+        // for(let item of gen())
+        // {
+        //     console.log(item)
+        // }
+
+
+        //test2 
+        function user() {
+            setTimeout(() => {
+                let date = "aodi"
+                iterator.next(date)
+            }, 1000)
+        }
+        function order() {
+            setTimeout(() => {
+                let date = "dingdan"
+                iterator.next(date)
+            }, 2000)
+        }
+        function goods() {
+            setTimeout(() => {
+                let date = "shangpingshuju"
+                iterator.next(date)
+            }, 3000)
+        }
+
+        function* genger() {
+            let usesr = yield user();
+            console.log(usesr)
+            let oder = yield order();
+            console.log(oder)
+            let good = yield goods();
+            console.log(good)
+        }
+
+        let iterator = genger()
+        iterator.next()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //确保没有覆盖原先的方法
+        let games = {
+            name: "xiao"
+        }
+        let mothods = {
+            up:Symbol(),
+            down:Symbol()
+        }
+
+        games[mothods.up] = function(){
+            console.log("向上")
+        }
+        games[mothods.down] = function(){
+            console.log("向下")
+        }
+
+        console.log(games)
+
+
+        let youxi ={
+            name : "aodi",
+            [Symbol("say")]:function(){
+                console.log("say")
+            },
+            [Symbol("zibao")]:function(){
+                console.log("你好")
+            }
+        }
+
+        console.log(youxi)
+    </script>
+</body>
+</html>

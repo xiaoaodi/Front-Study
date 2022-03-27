@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <script>
+        function sendAjax(url)
+        {
+            return new Promise((resolove,reject)=>{
+                const hxr = new XMLHttpRequest();
+                hxr.open("GET",url);
+                hxr.send();
+                hxr.onreadystatechange = function()
+                {
+                    if(hxr.readyState ===4)
+                    {
+                        if(hxr.status >= 200 && hxr.status <300)
+                        {
+                            resolove(hxr.response)
+                        }
+                        else{
+                            reject(hxr.status)
+                        }
+                    }
+                }
+
+            })
+        }
+        sendAjax("http://127.0.0.1:9000/server").then(value=>{
+            console.log(value)
+        }, reson => {
+            console.log(reson)
+        })
+
+    </script>
+</body>
+</html>

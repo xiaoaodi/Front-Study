@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const banji = {
+            name : "xad",
+            stu:[123,23,13,213,231],
+            [Symbol.iterator](){
+
+                let index = 0;
+                let _this = this
+                return {
+                      next: function(){
+                        if(index < _this.stu.length)
+                        {
+                            const res  = {value : _this.stu[index], done :false};
+                            index++
+                            return res
+                        }
+                        else{
+                            const res  = {value :undefined, done :false};
+                            return res
+                        }
+                       
+                    }
+                }
+            }
+
+        }
+
+        for(let i of banji){
+            console.log(i)
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test{
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="test">
+
+    </div>
+    <script>
+        // 1.点击div变化颜色间隔两秒钟
+        let div = document.getElementById("test")
+
+        div.addEventListener("click",function(){
+            let _this = this
+            setTimeout(()=>{
+                // alert("asdasd")
+                this.style.background ="black"
+            },1000)
+            // setTimeout(function(){
+            //     alert("asdasd")
+            //     _this.style.background ="black"
+            // },1000)
+        })
+
+        //2. 返回数组中偶数的元素
+        const arr  = [10,231,423,34,2324,423,4]
+        const res = arr.filter(item=>item % 2 === 0)
+        console.log(res)
+
+        // 箭头函数适合与this无关的函数的回调含函数的使用
+    </script>
+</body>
+</html>

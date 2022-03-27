@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function sendAjax(url) {
+            return new Promise((resolve, reject) => {
+                let hxr = new XMLHttpRequest()
+                hxr.open("POST", url)
+                hxr.send()
+
+                hxr.onreadystatechange = function () {
+                    if (hxr.readyState === 4) {
+                        if (hxr.status >= 200 && hxr.status < 300) {
+                            resolve(hxr.response)
+                        }
+                        else{
+                            reject(hxr.status)
+                        }
+                    }
+                }
+            })
+        }
+
+
+        // async and await Test
+        async function Test(){
+            let res = await sendAjax("https://weathernew.pae.baidu.com/weathernew/pc?query=%E6%B9%96%E5%8D%97%E9%95%BF%E6%B2%99%E5%A4%A9%E6%B0%94&srcid=4982")
+            console.log(res)
+        }
+
+        Test()
+    </script>
+
+</body>
+
+</html>
