@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dc15a464-adab-4c30-9e56-0ccca0429273" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../HTML Study/xtx-pc-client-main/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/../HTML Study/xtx-pc-client-main/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue_basic/02_Vue模板语法/模板语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue_basic/02_Vue模板语法/模板语法.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="28KCHweivI9CVRuxEr7w70wtrz2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc15a464-adab-4c30-9e56-0ccca0429273" name="Changes" comment="" />
+      <created>1650955811759</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650955811759</updated>
+      <workItem from="1650955817917" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>

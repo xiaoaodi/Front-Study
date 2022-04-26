@@ -150,8 +150,8 @@ footer .warpper ul li {
 }
 footer .warpper ul li::before {
     content: '';
-    display: inline-block;vertical-align: middle;
-
+    display: inline-block;
+    vertical-align: middle;
     width: 58px;
     height: 58px;
     margin-right: 14px;
